@@ -103,7 +103,7 @@ class Home extends Component<HomeProps, HomeState> {
 												<img src={image.url} alt={image.url} className={s.img} />
 												<div className={s.title}>
 													<span>
-														<Link to={`/home/:${image.id}`}>
+														<Link to={`/:${image.id}`}>
 															<EyeOutline />
 														</Link>
 														<CloseOutline onClick={() => this.handleDelete(image.id)} />

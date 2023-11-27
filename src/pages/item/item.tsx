@@ -3,7 +3,7 @@ import React, { Component, ComponentType } from 'react'
 import s from './item.module.scss'
 import Layout from '../../components/layout/layout'
 import { API } from '../../api/api'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 type Props = {
 	params: {
@@ -44,6 +44,9 @@ class Item extends Component<Props, State> {
 			<Layout>
 				<div className={s.container}>
 					<img src={this.state.imageUrl} alt='image' className={s.img} />
+					<Link to={'/'}>
+						<button className={s.btn}>Back to images</button>
+					</Link>
 				</div>
 			</Layout>
 		)

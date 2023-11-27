@@ -10,4 +10,25 @@
     border-radius: 4px;
     object-fit: cover;
   }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #8aabe7;
+    }
+
+    &:active {
+      background-color: #3678ea;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
 }

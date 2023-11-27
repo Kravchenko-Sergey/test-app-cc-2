@@ -90,6 +90,9 @@ class Settings extends Component<SettingsProps, SettingsState> {
 				}
 				reader.readAsDataURL(file)
 				this.setState({ isChangeCover: true })
+				API.getAllImages().then(res => {
+					this.setState({ images: res.data })
+				})
 			} else {
 				console.error('Error: ', 'Файл слишком большого размера')
 			}
@@ -106,11 +109,21 @@ class Settings extends Component<SettingsProps, SettingsState> {
 	}
 
 	handleDeleteAll = () => {
+		this.setState({ isLoading: true })
 		this.state.images.forEach((image: Image, index: number) => {
 			setTimeout(() => {
 				API.deleteImage({ id: image.id })
+				if (index === this.state.images.length - 1) {
+					API.getAllImages().then(res => {
+						this.setState({ images: res.data })
+					})
+					this.setState({ isLoading: false })
+				}
 			}, index * 500)
 		})
+		if (this.state.images.length === 0) {
+			this.setState({ isLoading: false })
+		}
 	}
 
 	render() {

@@ -39,8 +39,8 @@ class App extends Component<{}, AppState> {
 		return (
 			<MyContext.Provider value={value}>
 				<Routes>
-					<Route path={'/home'} element={<Home />}></Route>
-					<Route path={'/home/:id'} element={<Photo />}></Route>
+					<Route path={'/'} element={<Home />}></Route>
+					<Route path={'/:id'} element={<Photo />}></Route>
 					<Route path={'/settings'} element={<Settings />}></Route>
 				</Routes>
 			</MyContext.Provider>
