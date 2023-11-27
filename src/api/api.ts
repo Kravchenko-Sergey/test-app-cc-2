@@ -1,35 +1,42 @@
 import axios from 'axios'
+import {
+	CreateImageArgs,
+	CreateImageResponse,
+	DeleteImageArgs,
+	GetImageArgs,
+	GetImageResponse,
+	GetImagesArgs,
+	GetImagesResponse,
+	GetSettingsResponse,
+	UpdateSettingsArgs,
+	UpdateSettingsResponse,
+	DeleteImageResponse
+} from './types'
 
 export const instance = axios.create({
 	baseURL: 'http://localhost:8000/'
 })
 
 export const API = {
-	getName() {
-		return instance.get<any>('settings')
+	getSettings() {
+		return instance.get<GetSettingsResponse>('settings')
 	},
-	updateName(arg: any) {
-		return instance.patch<any>('settings', arg)
+	updateSettings(arg: UpdateSettingsArgs) {
+		return instance.patch<UpdateSettingsResponse>('settings', arg)
 	},
-	getDescription() {
-		return instance.get<any>('settings')
+	getImages(arg: GetImagesArgs) {
+		return instance.get<GetImagesResponse>(`images?_limit=${arg.limit}&_page=${arg.page}`)
 	},
-	updateDescription(arg: any) {
-		return instance.patch<any>('settings', arg)
+	getAllImages() {
+		return instance.get<GetImagesResponse>(`images`)
 	},
-	getImages(arg: any) {
-		return instance.get<any>(`images?_limit=${arg.limit}&_page=${arg.page}`)
+	getImage(arg: GetImageArgs) {
+		return instance.get<GetImageResponse>(`images/${arg.id}`)
 	},
-	getImage(arg: any) {
-		return instance.get<any>(`images/${arg.id}`)
+	createImage(arg: CreateImageArgs) {
+		return instance.post<CreateImageResponse>('images', arg)
 	},
-	createImage(arg: any) {
-		return instance.post<any>('images', arg)
-	},
-	deleteImage(arg: any) {
-		return instance.delete<any>(`images/${arg.id}`)
-	},
-	deleteAllImages() {
-		return instance.delete<any>(`images`)
+	deleteImage(arg: DeleteImageArgs) {
+		return instance.delete<DeleteImageResponse>(`images/${arg.id}`)
 	}
 }

@@ -2,12 +2,17 @@ import React, { Component } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/home/home'
 import Settings from './pages/settings/settings'
-import Photo from './pages/photo/photo'
+import Photo from './pages/item/item'
 
-export const MyContext = React.createContext({} as any)
+export const MyContext = React.createContext({})
 
-class App extends Component<any, any> {
-	constructor(props: any) {
+type AppState = {
+	name: string
+	description: string
+}
+
+class App extends Component<{}, AppState> {
+	constructor(props: {}) {
 		super(props)
 		this.state = {
 			name: '',

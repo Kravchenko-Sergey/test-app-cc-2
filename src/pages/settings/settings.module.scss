@@ -29,14 +29,75 @@
     justify-content: center;
 
     .img {
-      width: 100%;
+      width: 436px;
+      height: 346px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+
+    >button {
+      background-color: cornflowerblue;
+
+      &:hover {
+        background-color: #8aabe7;
+      }
+
+      &:active {
+        background-color: #3678ea;
+      }
     }
   }
 
   .btn {
     padding: 10px;
-    background-color: red;
+    background-color: crimson;
+    color: white;
     border: none;
     border-radius: 4px;
+
+    &:hover {
+      background-color: #d7546e;
+    }
+
+    &:active {
+      background-color: #e00030;
+    }
+  }
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 4px solid #FF3D00;
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

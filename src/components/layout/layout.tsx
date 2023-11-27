@@ -11,12 +11,12 @@ class Layout extends Component<LayoutProps> {
 		return (
 			<div className={s.container}>
 				<div className={s.buttons}>
-					<button>
-						<Link to={'/home'}>Home</Link>
-					</button>
-					<button>
-						<Link to={'/settings'}>Settings</Link>
-					</button>
+					<Link to={'/home'} className={s.link}>
+						<button className={s.btn}>Home</button>
+					</Link>
+					<Link to={'/settings'} className={s.link}>
+						<button className={s.btn}>Settings</button>
+					</Link>
 				</div>
 				{this.props.children}
 			</div>

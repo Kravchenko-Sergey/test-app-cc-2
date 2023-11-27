@@ -85,6 +85,37 @@
         }
       }
     }
+
+    .emptyContainer {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+
+      .btn {
+        padding: 8px 32px;
+        background-color: cornflowerblue;
+        border: none;
+        border-radius: 4px;
+        color: white;
+
+        &:hover {
+          background-color: #8aabe7;
+        }
+
+        &:active {
+          background-color: #3678ea;
+        }
+
+        .link {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
   }
 
   .buttons {

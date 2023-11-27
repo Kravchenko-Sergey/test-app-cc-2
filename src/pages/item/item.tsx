@@ -1,6 +1,6 @@
 import React, { Component, ComponentType } from 'react'
 
-import s from './photo.module.scss'
+import s from './item.module.scss'
 import Layout from '../../components/layout/layout'
 import { API } from '../../api/api'
 import { useParams } from 'react-router-dom'
@@ -23,7 +23,7 @@ function withParams(Component: ComponentType<{ params: RouteParams }>) {
 	return (props: any) => <Component {...props} params={useParams()} />
 }
 
-class Photo extends Component<Props, State> {
+class Item extends Component<Props, State> {
 	constructor(props: Props) {
 		super(props)
 		this.state = {
@@ -50,4 +50,4 @@ class Photo extends Component<Props, State> {
 	}
 }
 
-export default withParams(Photo)
+export default withParams(Item)
